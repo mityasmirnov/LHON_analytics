@@ -1,0 +1,8 @@
+Scenario,Liability,Penetrance
+11778G>A female,0.7,9.7%
+11778G>A male,2.662,74.6%
+11778G>A male J ['smoking_heavy'],4.082,98.1%
+14484T>C male J,5.657,100.0%
+14484T>C male non_J,-0.935,0.2%
+3460G>A male,3.962,97.5%
+11778G>A male ['heteroplasmy_protective'],1.667,37.0%

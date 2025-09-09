@@ -1,0 +1,10 @@
+scenario,mutation,sex,smoking,alcohol,haplogroup,penetrance_percent,penetrance_decimal
+Male non-smoker,11778G>A,Male,None,None,Other,2.815395589849996,0.02815395589849996
+Female non-smoker,11778G>A,Female,None,None,Other,0.03578949307224481,0.0003578949307224481
+Male heavy smoker,11778G>A,Male,Heavy,None,Other,14.834608229699281,0.1483460822969928
+Male heavy smoker + alcohol,11778G>A,Male,Heavy,Heavy,Other,43.93041648192316,0.4393041648192316
+Male J haplotype,14484T>C,Male,None,None,J,0.5878892604518331,0.0058788926045183305
+Male non-J haplotype,14484T>C,Male,None,None,Other,0.15318337614592514,0.0015318337614592514
+Female J haplotype,14484T>C,Female,None,None,J,0.003246401100769991,3.246401100769991e-05
+Male 3460G>A,3460G>A,Male,None,None,Other,17.5874717491194,0.175874717491194
+Female 3460G>A,3460G>A,Female,None,None,Other,0.8063800423736479,0.00806380042373648

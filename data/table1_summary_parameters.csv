@@ -1,0 +1,12 @@
+Parameter,Traditional Literature,Population Studies,Our Models,Discrepancy Ratio
+"Carrier Frequency (per 100,000)",22-74,110 (gnomAD),111.6,1.5-5x higher
+"Population Prevalence (per 100,000)",1.5-4.6,0.79-3.23,1.21 (theoretical),1-17x higher
+Overall Penetrance (%),12.5-50,1.11 (0.5-3.4),1.11-44 (calibrated),7-114x higher
+Male Penetrance (%),50-78,Not specified,51.7 (uncalibrated),Variable
+Female Penetrance (%),10-32,Not specified,33.3 (uncalibrated),Variable
+Male:Female Ratio,5-8,7.11,1.6 (uncalibrated),1-4x higher
+Heavy Smoker OR,Not quantified,3.16,3.16,Consistent
+Male Sex OR,Not quantified,7.11,7.11,Consistent
+Recovery Rate 11778G>A (%),4,4,0,Consistent
+Recovery Rate 14484T>C (%),37-65,37,56.2,Consistent
+Recovery Rate 3460G>A (%),20-78,20,0,Variable

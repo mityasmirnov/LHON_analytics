@@ -1,0 +1,85 @@
+{
+  "carrier_validation":{
+    "0":{
+      "expected_total":109.89,
+      "modeled_total":111.56,
+      "ratio":1.0151970152,
+      "status":"PASS"
+    }
+  },
+  "prevalence_validation":{
+    "0":{
+      "monte_carlo":{
+        "expected":1.87,
+        "modeled":32.15,
+        "ratio":17.192513369,
+        "in_range":false,
+        "status":"FAIL"
+      },
+      "theoretical":{
+        "expected":1.87,
+        "theoretical":1.20879,
+        "ratio":0.6464117647
+      }
+    }
+  },
+  "penetrance_validation":{
+    "0":{
+      "overall":{
+        "watson":0.011,
+        "bayesian":0.44,
+        "ratio":40.0,
+        "status":"FAIL"
+      },
+      "sex_ratio":{
+        "expected_ratio":7.11,
+        "modeled_ratio":1.5517241379,
+        "ratio_of_ratios":0.2182453077,
+        "status":"FAIL"
+      }
+    }
+  },
+  "calibration_result":{
+    "0":{
+      "success":true,
+      "threshold":5.0,
+      "sigma":1.3292278669,
+      "error":0.0000362015
+    }
+  },
+  "discrepancies":{
+    "0":[
+      {
+        "type":"gnomAD_prevalence_mismatch",
+        "description":"gnomAD carrier frequency too high for observed prevalence",
+        "expected_prevalence":1.87,
+        "implied_prevalence_traditional":43.956,
+        "discrepancy_ratio":23.5058823529,
+        "interpretation":"Traditional penetrance estimates are too high"
+      },
+      {
+        "type":"haplogroup_J_frequency",
+        "description":"14484T>C on haplogroup J is rare in gnomAD",
+        "gnomad_frequency":0.08,
+        "literature_expectation":"Higher if J is causative",
+        "interpretation":"J may be permissive rather than causative"
+      },
+      {
+        "type":"sex_bias_mechanism",
+        "description":"Strong male bias in disease despite equal carrier frequency",
+        "carrier_sex_ratio":1.0,
+        "disease_sex_ratio":7.11,
+        "interpretation":"Sex-linked modifiers or X-chromosome effects"
+      }
+    ]
+  },
+  "validations":{
+    "0":{
+      "Carrier Frequencies":"PASS",
+      "Population Prevalence":"FAIL",
+      "Overall Penetrance":"FAIL",
+      "Sex Ratio":"FAIL",
+      "Model Calibration":"PASS"
+    }
+  }
+}
