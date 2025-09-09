@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4eaf5 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .title {
+        color: #2C3E50;
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+      .subtitle {
+        color: #3498DB;
+        font-size: 28px;
+        font-weight: 500;
+      }
+      .author {
+        color: #333333;
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .affiliation {
+        color: #333333;
+        font-size: 20px;
+        font-style: italic;
+      }
+      .background-element {
+        position: absolute;
+        opacity: 0.1;
+        z-index: 0;
+      }
+      .content-wrapper {
+        position: relative;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col items-center justify-center p-16">
+      <!-- Background design elements -->
+      <div class="background-element" style="top: 0; right: 0; width: 400px; height: 400px;">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#3498DB" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90.2,-16.3,88.8,-0.8C87.4,14.7,81.8,29.3,73.6,42.9C65.3,56.5,54.5,69,41.3,74.8C28.1,80.5,14.1,79.5,-0.2,79.8C-14.5,80.1,-29,81.8,-41.9,76.6C-54.8,71.4,-66.2,59.4,-74.1,45.6C-82,31.8,-86.5,15.9,-85.8,0.4C-85.1,-15.1,-79.3,-30.2,-70.5,-43.2C-61.7,-56.2,-49.9,-67.1,-36.6,-74.6C-23.3,-82.1,-11.6,-86.3,1.6,-89C14.9,-91.7,29.8,-92.9,44.7,-76.4Z" transform="translate(100 100)" />
+        </svg>
+      </div>
+      <div class="background-element" style="bottom: 0; left: 0; width: 300px; height: 300px;">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#2C3E50" d="M47.7,-73.2C62.9,-66.2,77.1,-56.3,83.9,-42.7C90.7,-29.1,90.1,-11.8,86.6,4.1C83.1,19.9,76.8,34.4,67.4,47.1C58,59.8,45.6,70.7,31.3,76.4C17.1,82.1,0.9,82.6,-14.4,79.1C-29.7,75.7,-44.1,68.3,-56.2,57.7C-68.3,47.1,-78.1,33.3,-82.6,17.7C-87.1,2.1,-86.3,-15.3,-79.9,-29.8C-73.5,-44.3,-61.5,-55.8,-47.5,-63.1C-33.5,-70.3,-16.7,-73.2,-0.5,-72.4C15.8,-71.6,31.5,-67.1,47.7,-73.2Z" transform="translate(100 100)" />
+        </svg>
+      </div>
+      
+      <!-- Content -->
+      <div class="content-wrapper flex flex-col items-center justify-center text-center w-full">
+        <h1 class="title mb-6">Insights into Prevalence and Penetrance Bias Estimations for Leber's Hereditary Optic Neuropathy</h1>
+        <h2 class="subtitle mb-12">A Comprehensive Mathematical Modeling Approach</h2>
+        <div class="author mb-4">Dmitrii Smirnov</div>
+        <div class="affiliation mb-2">Institute of Human Genetics, School of Medicine</div>
+        <div class="affiliation mb-8">Technical University of Munich, Munich, Germany</div>
+        <div class="text-gray-600 text-xl">dmitrii.smirnov@tum.de</div>
+      </div>
+    </div>
+  </body>
+</html>
+

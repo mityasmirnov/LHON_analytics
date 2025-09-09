@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #FFFFFF;
+        position: relative;
+      }
+      .title {
+        color: #2C3E50;
+        font-size: 36px;
+        font-weight: bold;
+      }
+      .content {
+        color: #333333;
+        font-size: 24px;
+      }
+      .highlight {
+        color: #3498DB;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container p-12">
+      <h1 class="title mb-6">Risk Factor Analysis</h1>
+      
+      <div class="grid grid-cols-2 gap-8">
+        <div class="content">
+          <p class="mb-4"><span class="highlight">Key risk factors affecting LHON penetrance:</span></p>
+          <ul class="list-disc ml-8 space-y-3">
+            <li><strong>Male sex:</strong> Strongest single predictor (OR 7.11)</li>
+            <li><strong>Environmental factors:</strong>
+              <ul class="list-disc ml-8 mt-1">
+                <li>Heavy smoking (>20 cig/day): OR 3.16</li>
+                <li>Heavy alcohol (>35 units/week): OR 3.25</li>
+                <li>Combined heavy smoking + alcohol: OR 8.95</li>
+              </ul>
+            </li>
+            <li><strong>Genetic modifiers:</strong>
+              <ul class="list-disc ml-8 mt-1">
+                <li>Haplogroup J: OR 2.00 (for m.11778G>A, m.14484T>C)</li>
+                <li>Heteroplasmy: Protective (OR 0.37)</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p class="mt-6"><span class="highlight">Clinical implications:</span></p>
+          <p>Risk varies by >1000-fold based on individual risk profiles, necessitating personalized risk assessment</p>
+        </div>
+        
+        <div>
+          <div style="height: 500px;">
+            <canvas id="riskFactorChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Chart data
+      const ctx = document.getElementById('riskFactorChart').getContext('2d');
+      const riskFactorChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Male Sex', 'Heavy Smoking', 'Heavy Alcohol', 'Combined Smoking+Alcohol', 'Haplogroup J', 'Heteroplasmy'],
+          datasets: [
+            {
+              label: 'Odds Ratio',
+              data: [7.11, 3.16, 3.25, 8.95, 2.00, 0.37],
+              backgroundColor: [
+                '#3498DB',
+                '#E74C3C',
+                '#E74C3C',
+                '#E74C3C',
+                '#2C3E50',
+                '#2C3E50'
+              ],
+              borderColor: [
+                '#2980B9',
+                '#C0392B',
+                '#C0392B',
+                '#C0392B',
+                '#1B2631',
+                '#1B2631'
+              ],
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            title: {
+              display: true,
+              text: 'LHON Risk Factors: Odds Ratios',
+              font: {
+                size: 18
+              }
+            },
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return 'Odds Ratio: ' + context.raw;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Odds Ratio',
+                font: {
+                  size: 14
+                }
+              },
+              max: 10
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+

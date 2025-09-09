@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #FFFFFF;
+        position: relative;
+      }
+      .title {
+        color: #2C3E50;
+        font-size: 36px;
+        font-weight: bold;
+      }
+      .content {
+        color: #333333;
+        font-size: 24px;
+      }
+      .highlight {
+        color: #3498DB;
+        font-weight: 500;
+      }
+      .paradox-box {
+        border: 2px solid #3498DB;
+        border-radius: 8px;
+        background-color: rgba(52, 152, 219, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container p-10">
+      <h1 class="title mb-6">The Penetrance Paradox</h1>
+      
+      <div class="grid grid-cols-2 gap-6 h-full">
+        <div class="content flex flex-col justify-evenly">
+          <div>
+            <p class="mb-2"><span class="highlight">Traditional penetrance estimates</span> from clinically ascertained families:</p>
+            <ul class="list-disc ml-8 space-y-1 mb-4">
+              <li>Males: 40-50% risk of vision loss</li>
+              <li>Females: 10-15% risk of vision loss</li>
+            </ul>
+          </div>
+          
+          <div class="paradox-box p-3 mb-4">
+            <p class="font-bold mb-1">The Carrier Frequency Paradox:</p>
+            <p>gnomAD data shows LHON variants are far more common than expected based on disease prevalence</p>
+          </div>
+          
+          <div>
+            <p class="mb-2"><span class="highlight">Mathematical relationship:</span></p>
+            <p class="font-bold text-center mb-3">Population Prevalence = Carrier Frequency × Penetrance</p>
+            
+            <p>This paradox suggests <span class="highlight">systematic overestimation</span> of penetrance due to ascertainment bias</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center">
+          <div style="min-height: 450px; width: 100%;">
+            <canvas id="penetranceChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Chart data
+      const ctx = document.getElementById('penetranceChart').getContext('2d');
+      const penetranceChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['m.3460G>A', 'm.11778G>A', 'm.14484T>C'],
+          datasets: [
+            {
+              label: 'Traditional Estimates (Males)',
+              data: [78, 43, 65],
+              backgroundColor: '#3498DB',
+              borderColor: '#2980B9',
+              borderWidth: 1
+            },
+            {
+              label: 'gnomAD-Informed Estimates',
+              data: [17.15, 4.56, 0.61],
+              backgroundColor: '#E74C3C',
+              borderColor: '#C0392B',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Penetrance Estimates: Traditional vs. gnomAD-Informed',
+              font: {
+                size: 18
+              }
+            },
+            legend: {
+              position: 'bottom'
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.raw + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Penetrance (%)',
+                font: {
+                  size: 14
+                }
+              },
+              max: 100
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'LHON Pathogenic Variants',
+                font: {
+                  size: 14
+                }
+              }
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+

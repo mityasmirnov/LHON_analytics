@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <style>
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #FFFFFF;
+        position: relative;
+      }
+      .title {
+        color: #2C3E50;
+        font-size: 36px;
+        font-weight: bold;
+      }
+      .content {
+        color: #333333;
+        font-size: 24px;
+      }
+      .highlight {
+        color: #3498DB;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container p-12">
+      <h1 class="title mb-6">Revised Penetrance Estimates</h1>
+      
+      <div class="grid grid-cols-2 gap-8">
+        <div class="content">
+          <p class="mb-4"><span class="highlight">Key findings:</span></p>
+          <ul class="list-disc ml-8 space-y-3">
+            <li>Overall LHON penetrance: <span class="highlight">~2.44%</span> (95% CI: 1.8-3.1%)</li>
+            <li>Dramatic reduction from traditional estimates (40-50%)</li>
+            <li>Variant-specific penetrance:
+              <ul class="list-disc ml-8 mt-2">
+                <li>m.3460G>A: 17.15% (vs. 78% in literature)</li>
+                <li>m.11778G>A: 4.56% (vs. 43% in literature)</li>
+                <li>m.14484T>C: 0.61% (vs. 65% in literature)</li>
+              </ul>
+            </li>
+            <li>Sex-specific differences:
+              <ul class="list-disc ml-8 mt-2">
+                <li>Males: 4.5% overall penetrance</li>
+                <li>Females: 0.5% overall penetrance</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <div style="height: 450px;">
+            <canvas id="penetranceComparisonChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Chart data
+      const ctx = document.getElementById('penetranceComparisonChart').getContext('2d');
+      const penetranceComparisonChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Clinical Cohorts', 'Population Studies', 'Our Model', 'gnomAD Direct'],
+          datasets: [
+            {
+              label: 'Overall Penetrance (%)',
+              data: [40, 15, 2.44, 1.1],
+              backgroundColor: [
+                '#3498DB',
+                '#2980B9',
+                '#16A085',
+                '#1ABC9C'
+              ],
+              borderColor: '#2C3E50',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: 'LHON Penetrance Estimates by Source',
+              font: {
+                size: 18
+              }
+            },
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return 'Penetrance: ' + context.raw + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Penetrance (%)',
+                font: {
+                  size: 14
+                }
+              },
+              max: 50
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Data Source',
+                font: {
+                  size: 14
+                }
+              }
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+
